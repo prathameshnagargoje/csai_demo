@@ -1,0 +1,1 @@
+{'ad': {'item_name': 'ad', 'tot_bundles': 0}}

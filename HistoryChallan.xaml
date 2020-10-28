@@ -1,0 +1,15 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="History Challan" WindowState="Maximized" Closed="windowClose" Background="WhiteSmoke">
+    <Grid>
+        <Label Content="Challan List" HorizontalAlignment="Center" VerticalAlignment="Top" Height="60" Width="420" Margin="0,30,0,0" FontFamily="Roboto Medium" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFFF3D00" BorderThickness="0,0,0,2" BorderBrush="#FFFF3D00"/>
+        <ScrollViewer HorizontalAlignment="Center" Height="420" VerticalAlignment="Top" Width="400" Margin="180,140,180,0" Background="#FFB0BEC5" BorderBrush="#FFFF3D00" BorderThickness="2">
+            <StackPanel x:Name="custList_stack" Width="370" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        </ScrollViewer>
+        <ComboBox x:Name="monthComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60" Margin="0,110,300,0" Height="22" FontFamily="Roboto Medium"/>
+        <ComboBox x:Name="yearComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60" Margin="0,110,150,0" Height="22" FontFamily="Roboto Medium"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="sortMonth_Click" Content="Sort" HorizontalAlignment="Center" VerticalAlignment="Top" Width="33" Margin="0,110,30,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" Height="22"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="sortByDate" Content="Clear" HorizontalAlignment="Center" VerticalAlignment="Top" Width="35" Margin="250,110,0,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" Height="22"/>
+
+    </Grid>
+</Window>

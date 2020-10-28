@@ -1,0 +1,78 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Service Customer" WindowState="Maximized" FontFamily="Roboto Medium" FocusManager.FocusedElement="{Binding ElementName=custNameText}" Background="WhiteSmoke" FontSize="16">
+    <Grid x:Name="mainGrid">
+        <Grid x:Name="custInfoGrid" HorizontalAlignment="Left" Height="494" VerticalAlignment="Top" Width="346" Margin="20,20,0,0">
+            <TextBox x:Name="custNameText" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="151,128,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Phone No:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="145" Margin="1,200,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox x:Name="phoneNoText" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="151,200,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Place:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="145" Margin="1,270,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox x:Name="placeText" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="151,270,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Customer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="145" Margin="1,128,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+
+        </Grid>
+        <Label Content="Total Remaining Bal.:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="19,0,0,20" Width="180" Height="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+        <Label x:Name="totRemBalLabel" Content="0.0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="200,0,0,20" Width="158" Height="42" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+        <Grid x:Name="custTableGrid" HorizontalAlignment="Center" Height="494" VerticalAlignment="Top" Width="378" Margin="0,20,0,0">
+            <ScrollViewer HorizontalAlignment="Left" Height="258" VerticalAlignment="Top" Width="336" Margin="18,112,0,0" FontFamily="Roboto Medium" FontSize="16" Background="#FFB0BEC5">
+                <StackPanel x:Name="custData_stack" Width="302" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </ScrollViewer>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="addNewData" Content="Add Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="90,400,0,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="34"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="showDeleteDataGrid" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Margin="266,400,0,0" Height="34" FontFamily="Roboto Medium" FontSize="24" Background="#FFE21C17" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontWeight="Bold"/>
+            <Separator HorizontalAlignment="Left" Height="12" Margin="-224,254,0,0" VerticalAlignment="Top" Width="390" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="sortByDate" Content="By Date" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="274,60,0,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="14" Height="23"/>
+        </Grid>
+        <Grid x:Name="showDataGrid" HorizontalAlignment="Right" Height="500" VerticalAlignment="Top" Width="360" Margin="0,20,30,0">
+            <DatePicker x:Name="dateDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,148,0,0" Height="34" Width="182" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="20"/>
+            <Label Content="Weight:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="145" Margin="0,205,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox TextChanged="updateBill" KeyDown="ifEnterHit" x:Name="weightText" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="150,205,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <TextBox TextChanged="updateBill" KeyDown="ifEnterHit" x:Name="rateText" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="150,250,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+
+            <Label Content="Bill:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Width="145" Margin="0,295,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox KeyDown="ifEnterHit" x:Name="billText" TextChanged="updateRemBalText" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="150,295,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Deposit:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="145" Margin="0,340,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox KeyDown="ifEnterHit" x:Name="depositText" TextChanged="updateRemBalText" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="150,340,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Remaining Bal:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="145" Margin="0,385,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+            <TextBox KeyDown="ifEnterHit" x:Name="remBalText" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="150,385,0,0" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18"/>
+            <Separator HorizontalAlignment="Left" Height="8" Margin="-249,283,0,0" VerticalAlignment="Top" Width="420" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="insertData" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Margin="119,450,0,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="34"/>
+            <Label x:Name="showDataLabel" Content="22" HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="144" Margin="105,82,0,0" FontFamily="Roboto Medium" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderThickness="0,0,0,2" BorderBrush="#FFE65100"/>
+            <Label Content="Rate:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="34" Width="145" Margin="0,250,0,0" FontFamily="Roboto Medium" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+        </Grid>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="saveFinalData" Content="SAVE ALL" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="126" Margin="0,0,30,30" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="48"/>
+        <Grid x:Name="custDeleteGrid" HorizontalAlignment="Right" Height="482" VerticalAlignment="Top" Width="360" Margin="0,20,30,0">
+            <ComboBox x:Name="deleteComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="88,169,0,0" Height="40" FontFamily="Roboto Medium" FontSize="20"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteData_Click" Content="Delete Data" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="88,278,0,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="20" Height="49"/>
+            <Separator HorizontalAlignment="Left" Height="9" Margin="-217,225,0,0" VerticalAlignment="Top" Width="418" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+        </Grid>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteCustomer_Click" Content="Delete Customer" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" Height="35" Margin="0,20,20,0" Background="#FFE65100" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontSize="16" FontFamily="Roboto Medium"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="genPDF_Click" Content="PRINT" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="126" Margin="0,0,200,30" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="48"/>
+    </Grid>
+</Window>

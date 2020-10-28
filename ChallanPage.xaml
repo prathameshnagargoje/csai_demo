@@ -1,0 +1,90 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Challan" WindowState="Maximized" Background="#FF2D3436" FocusManager.FocusedElement="{Binding ElementName=customer_name}">
+    <Grid Background="WhiteSmoke">
+        <Grid x:Name="challanMainGrid" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="504">
+            <Label Content="Challan No: " HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Roboto Medium" Foreground="#FFE65100" Background="{x:Null}"/>
+            <Label x:Name="challan_no_label" Content="1001" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,0,0,0" Height="30" Width="82" VerticalContentAlignment="Center" Padding="15,5,5,5" FontSize="16" Background="Black" Foreground="White" FontWeight="Bold" FontFamily="Roboto Medium"/>
+            <Label Content="Customer Name: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,80,0,0" Width="146" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Roboto Medium" Foreground="#FFE65100" RenderTransformOrigin="-0.065,0.333" Background="{x:Null}"/>
+            <TextBox x:Name="customer_name" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Margin="178,80,0,0" FontSize="16" VerticalContentAlignment="Center" FontFamily="Roboto Medium"/>
+            <Label Content="Vehicle No: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,132,0,0" Width="146" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Roboto Medium" Foreground="#FFE65100" Background="{x:Null}"/>
+            <TextBox x:Name="vehicle_no" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Margin="178,132,0,0" FontSize="16" VerticalContentAlignment="Center" FontFamily="Roboto Medium"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="addItem_btn_Click" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Margin="290,442,0,-8" Height="40" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="283" Margin="68,252,0,0" FontFamily="Roboto Medium" Background="#FFB0BEC5" BorderBrush="#FFFF5D00" BorderThickness="1">
+                <ScrollViewer.Effect>
+                    <DropShadowEffect Opacity="0.3" Direction="360"/>
+                </ScrollViewer.Effect>
+                <StackPanel x:Name="item_list_panel" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="263"/>
+            </ScrollViewer>
+            <TextBox KeyDown="ifEnterHit" x:Name="item_name_text" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Margin="27,442,0,-8" FontSize="16" VerticalContentAlignment="Center" FontFamily="Roboto Medium"/>
+            <Label Content="Item List" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="102,207,0,0" Width="210" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFE65100" BorderBrush="#FFE65100" BorderThickness="0,0,0,1" Height="40" FontSize="18" FontFamily="Roboto Medium"/>
+
+        </Grid>
+        <Grid x:Name="challanBundleListGrid" HorizontalAlignment="Center" Height="474" VerticalAlignment="Top" Width="381" Margin="0,20,0,0">
+            <Label x:Name="itemNameLabel" Content="No Item Selected" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="124,148,45,0" Width="212" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFE65100" BorderBrush="#FFE65100" BorderThickness="0,0,0,1" Height="42" FontSize="18" FontFamily="Roboto Medium"/>
+            <ScrollViewer HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="252" Margin="94,208,35,0" FontFamily="Roboto Medium" FontSize="16" Background="#FFB0BEC5">
+                <StackPanel x:Name="items_bundle_stack" Width="218" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </ScrollViewer>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="addNewBundleChallan" Content="Add Bundle" HorizontalAlignment="Center" VerticalAlignment="Top" Width="114" Margin="124,434,143,0" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="34"/>
+            <Separator HorizontalAlignment="Left" Margin="-178,244,0,0" VerticalAlignment="Top" Width="344" RenderTransformOrigin="0.5,0.5" FontFamily="Roboto Medium">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.502"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteBtn_Click" Content="X" HorizontalAlignment="Center" VerticalAlignment="Top" Width="38" Margin="298,434,45,0" Height="34" FontFamily="Roboto Medium" FontSize="24" Background="#FFE21C17" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontWeight="Bold"/>
+
+        </Grid>
+        <Grid x:Name="challanBundleGrid" HorizontalAlignment="Right" Height="474" VerticalAlignment="Top" Width="280" Margin="0,20,50,0">
+            <TextBox KeyDown="ifEnterHitBundle" x:Name="qty_text" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Margin="136,206,0,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox KeyDown="ifEnterHitBundle" x:Name="gross_wt_text" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Margin="136,270,0,0" FontFamily="Roboto Medium" RenderTransformOrigin="0.518,0.545" VerticalContentAlignment="Center" FontSize="16"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="insertRowInChallanDataGrid" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="76,408,0,0" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFE65100" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontFamily="Roboto Medium" FontSize="18"/>
+            <Label Content="Qty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,204,0,0" Height="44" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFE65100" BorderBrush="#FFE65100" BorderThickness="0,0,1,0" FontSize="16"/>
+            <Label Content="Weight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,270,0,0" Height="40" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFE65100" BorderBrush="#FFE65100" BorderThickness="0,0,1,0" FontSize="16"/>
+            <Label x:Name="bundleCounterLabel" Content="Bundle No: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,122,0,0" Height="48" FontFamily="Roboto Medium" Width="210" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FFE65100" BorderBrush="#FFE65100" BorderThickness="0,0,0,1" FontSize="18"/>
+            <Separator HorizontalAlignment="Left" Height="2" Margin="-202,274,0,0" VerticalAlignment="Top" Width="326" RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.615"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+        </Grid>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="challanSaveBtn_Click" Content="SAVE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="128" Margin="0,0,174,20" Height="40" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="challanGetPDFBtn_Click" Content="Get PDF" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="128" Margin="0,0,20,20" Height="40" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+        <Grid x:Name="challanDeleteGrid" HorizontalAlignment="Right" Height="474" VerticalAlignment="Top" Width="282" Margin="0,20,50,0">
+            <ComboBox x:Name="bundleCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="22,254,0,0" BorderBrush="#FFFF3D00" FontFamily="Roboto Medium" FontSize="16" Height="34">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF2D3436" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteBundleBtn_Click" Content="Delete Bundle" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Margin="120,254,0,0" Height="34" FontFamily="Roboto Medium" FontSize="16" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteItemBtn_Click" Content="Delete Item" HorizontalAlignment="Left" VerticalAlignment="Top" Width="159" Margin="51,418,0,0" Height="34" FontFamily="Roboto Medium" FontSize="16" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100"/>
+            <Separator HorizontalAlignment="Left" Height="2" Margin="-198,286,0,0" VerticalAlignment="Top" Width="326" RenderTransformOrigin="0.5,0.5" FontFamily="Roboto Medium">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.615"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+        </Grid>
+        <Label Content="Total Weight: " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20" Height="40" Width="136" Foreground="#FFE65100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Background="{x:Null}"/>
+        <Label x:Name="tot_weight_lable" Content="Total Weight: " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="156,0,0,20" Height="40" Width="136" Foreground="#FFE65100" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Background="{x:Null}"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteWholeChallan_Click" Content="Delete Challan" HorizontalAlignment="Right" VerticalAlignment="Top" Width="121" Height="30" Margin="0,20,20,0" Background="#FFE65100" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontSize="16" FontFamily="Roboto Medium"/>
+
+    </Grid>
+
+</Window>

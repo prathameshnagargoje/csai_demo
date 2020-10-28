@@ -1,0 +1,1 @@
+@start ipy/ipyw "CSAI_Win.pyw" %*

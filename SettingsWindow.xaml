@@ -1,0 +1,55 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SettingsWindow" WindowState="Maximized" Background="WhiteSmoke">
+    <Grid>
+        <Grid HorizontalAlignment="Center" Height="448" VerticalAlignment="Center" Width="370" Margin="10,46,380,10">
+            <TextBox x:Name="new_challan_text" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Margin="181,53,95,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Content="Challan No:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="54,53,208,0" Height="42" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,1,0" FontSize="16"/>
+            <TextBox x:Name="new_invoice_text" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Margin="181,121,95,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Content="Invoice No:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="54,121,208,0" Height="42" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,1,0" FontSize="16"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="saveChallanInvoiceNo_Click" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top" Width="128" Margin="104,194,138,0" Height="40" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+            <Separator HorizontalAlignment="Center" Height="21" Margin="0,249,3,0" VerticalAlignment="Top" Width="367" FontFamily="Roboto Medium"/>
+            <Label Content="*Next document will start with below set values." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-17,0,0,0" Height="42" FontFamily="Roboto Medium" Width="367" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,0,1" FontSize="16"/>
+            <TextBox x:Name="delYear_text" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Margin="182,288,94,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Content="Years:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="54,288,208,0" Height="42" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,1,0" FontSize="16"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteData_Click" Content="Delete Data" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="130" Margin="104,0,136,-14" Height="50" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+            <Label Content="*Data created before ented yaer, will deleted from" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontFamily="Roboto Medium" Width="366" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,0,1" FontSize="16" Margin="-16,336,0,0"/>
+            <Label Content="online as well. Eg. 2 for delete before 2 years." HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontFamily="Roboto Medium" Width="366" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,0,1" FontSize="16" Margin="-16,368,0,0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="448" VerticalAlignment="Center" Width="370" Margin="380,46,10,10">
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="changeUsernamePassword_Click" Content="Change" HorizontalAlignment="Center" VerticalAlignment="Top" Width="180" Margin="124,156,66,0" Height="65" FontSize="20" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="uname_text" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="226,9,14,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Content="New UserName:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="76,9,162,0" Height="42" FontFamily="Roboto Medium" Width="132" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0" FontSize="16"/>
+            <TextBox x:Name="password_text" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="226,77,14,0" FontFamily="Roboto Medium" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Content="New Password:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="76,77,162,0" Height="42" FontFamily="Roboto Medium" Width="132" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0" FontSize="16"/>
+            <Separator HorizontalAlignment="Left" Height="20" Margin="-221,217,0,211" VerticalAlignment="Center" Width="444" RenderTransformOrigin="0.5,0.5" FontFamily="Roboto Medium">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <Separator HorizontalAlignment="Center" Height="21" Margin="0,249,3,0" VerticalAlignment="Top" Width="367" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="janCheck" Content="Jan" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,328,0,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+            <Label Content="Delete Specific" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="58,292,204,0" Height="26" FontFamily="Roboto Medium" Width="108" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="WhiteSmoke" Foreground="#FFE65100" BorderBrush="#FFFF5D00" BorderThickness="0,0,0,1" FontSize="14"/>
+            <ComboBox x:Name="yearCombo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="76" Margin="76,343,218,0" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="augCheck" Content="Aug" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,350,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center" />
+            <CheckBox Click="checkBox_Click" x:Name="junCheck" Content="Jun" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,430,0,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="mayCheck" Content="May" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,410,0,0" Foreground="#FFFF5D00"  Width="50" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="aprCheck" Content="Apr" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,390,0,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="marCheck" Content="Mar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,370,0,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="febCheck" Content="Feb" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="130,350,0,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+            <CheckBox Click="checkBox_Click" x:Name="octCheck" Content="Oct" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,390,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center"/>
+            <CheckBox Click="checkBox_Click" x:Name="julyCheck" Content="July" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,330,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center"/>
+            <CheckBox Click="checkBox_Click" x:Name="sepCheck" Content="Sep" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,370,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center"/>
+            <CheckBox Click="checkBox_Click" x:Name="decCheck" Content="Dec" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,430,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center"/>
+            <CheckBox Click="checkBox_Click" x:Name="novCheck" Content="Nov" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="300,410,14,0" Foreground="#FFFF5D00" Width="56" FontFamily="Roboto Medium" Height="15" VerticalContentAlignment="Center"/>
+            <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="deleteSpecific_Click" Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="70" Margin="76,0,224,10" Height="35" FontSize="18" FontFamily="Roboto Medium" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" VerticalContentAlignment="Center"/>
+            <CheckBox Click="checkBox_Click"  x:Name="allCheck" Content="All" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="267,303,53,0" Foreground="#FFFF5D00" Width="50" FontFamily="Roboto Medium"/>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,21 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sale Customer" WindowState="Maximized" Background="WhiteSmoke" FontFamily="Roboto Medium" FontSize="16">
+    <Grid>
+        <Label Content="Sale Customer List" HorizontalAlignment="Center" VerticalAlignment="Top" Height="60" Width="420" Margin="0,30,0,0" FontFamily="Roboto Medium" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFE65100" BorderThickness="0,0,0,2" BorderBrush="#FFE65100"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="newCustomerBtn_Click" Content="New Customer" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="160" Margin="0,0,20,20" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Background="#FFE65100" FontFamily="Roboto Medium" FontSize="18" Height="34"/>
+        <ScrollViewer HorizontalAlignment="Center" Height="420" VerticalAlignment="Top" Width="400" Margin="180,140,180,0" Background="#B0BEC5" BorderBrush="#FFFF3D00" BorderThickness="2">
+            <StackPanel x:Name="custList_stack" Width="370" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        </ScrollViewer>
+        <TextBox x:Name="cust_Text" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Margin="260,109,320,0" FontSize="14" FontFamily="Roboto Medium"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" x:Name="findCust" Click="findCust_Click" Content="Find" HorizontalAlignment="Center" VerticalAlignment="Top" Width="47" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" Margin="445,111,268,0" FontFamily="Roboto Medium">
+            <Button.Background>
+                <SolidColorBrush Color="#FFE65100"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Total Remaining Bal.:" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="19,0,0,20" Width="180" Height="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+        <Label x:Name="totRemBalLabel" Content="0.0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="200,0,0,20" Width="158" Height="42" VerticalContentAlignment="Center" FontFamily="Roboto Medium" FontSize="18" Foreground="#FFE65100" BorderBrush="#FFE65100"/>
+        <Button MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" x:Name="clearFind" Click="clearFind_Click" Content="Clear" HorizontalAlignment="Center" VerticalAlignment="Top" Width="42" Margin="535,111,183,0" Background="#FFE65100" BorderBrush="WhiteSmoke" Foreground="WhiteSmoke" FontFamily="Roboto Medium"/>
+
+    </Grid>
+</Window>
